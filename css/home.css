@@ -1,11 +1,12 @@
 body {
     font-family: Arial, sans-serif;
+    display: flex;
 }
 nav {
     position: fixed; /* קבוע לאורך הגלילה */
     top: 0;
     right: 0;
-    width: 200px; /* רוחב הניווט */
+    width: 20%; /* רוחב הניווט */
     height: 100vh; /* גובה הניווט לאורך כל הדף */
     background-color: #fefaff; /* צבע רקע סגול בהיר */
     padding: 20px;
@@ -59,6 +60,7 @@ nav {
 
 
 .cards-container {
+    width: 80%;
     display: flex;
     flex-wrap: wrap; /* מאפשר עטיפה של כרטיסיות אם אין מקום */
     justify-content: space-between; /* יוצר רווח אחיד בין הכרטיסיות */
