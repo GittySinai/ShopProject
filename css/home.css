@@ -3,14 +3,17 @@ body {
     font-weight: 300; 
     display: flex;
     padding-left: 5px;
+    background-color:     #f9f9f9;
+
 }
+
 nav {
     position: fixed; /* קבוע לאורך הגלילה */
     top: 0;
     right: 0;
     width: 15%; /* רוחב הניווט */
     height: 100vh; /* גובה הניווט לאורך כל הדף */
-    background-color: #fefaff; /* צבע רקע סגול בהיר */
+    background-color: white; /* צבע רקע סגול בהיר */
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* הצללה קלה */
     display: flex;
@@ -23,9 +26,8 @@ nav {
 .navbar-links {
     display: flex;
     flex-direction: column;
-    gap: 0; /* לא צריך ריווח אנכי בין הפריטים */
     list-style-type: none; /* מסיר את הנקודות מהרשימה */
-    padding: 0; /* מסיר ריווח פנימי */
+    padding: 10px; /* מסיר ריווח פנימי */
     margin: 0; /* מסיר ריווח חיצוני */
 }
 
@@ -68,9 +70,6 @@ nav {
     margin: 0; /* מסיר ריווח מיותר */
 }
 
-
-
-
 .cards-container {
     width: 81%;
     display: flex;
@@ -88,8 +87,7 @@ nav {
     width: calc(33.33% - 20px); /* 3 כרטיסיות בשורה עם רווחים */
     box-sizing: border-box; /* מחשב רווחים כחלק מגודל הכרטיסיה */
     text-align: center;
-    background-color: #f9f9f9;
-}
+    background-color: white}
 
 .image {
     width: 200px;
@@ -141,5 +139,10 @@ nav {
     border-radius: 50%;
     margin-right: 5px;
     vertical-align: middle;
+}
+.navbar-logo {
+    margin-top: auto; /* דוחף את הלוגו לתחתית */
+    width: 100%; /* רוחב מלא */
+    height: auto; /* גובה אוטומטי לשמירה על פרופורציות */
 }
 
