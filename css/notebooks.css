@@ -105,6 +105,7 @@ nav {
     padding-left: 6px;
     padding-top: 6px;
     direction: rtl;
+    /* position:relative; */
     display: flex; /* סידור בשורה */
     align-items: center;
     justify-content: space-between; /* רווח אחיד בין המחיר לכפתור */
@@ -146,3 +147,48 @@ nav {
     height: auto; /* גובה אוטומטי לשמירה על פרופורציות */
 }
 
+.modal {
+    display: none; /* לא מוצג בהתחלה */
+    position: fixed; /* נשאר במיקום קבוע */
+    z-index: 1000; /* מעל שאר התוכן */
+    left: 0;
+    top: 0;
+    width: 100%; /* רוחב מלא */
+    height:100%; 
+    overflow: auto; /* ראה מה קורה */
+    background-color: rgba(0, 0, 0, 0.7); /* רקע כהה עם שקיפות */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* מרכז את התוכן */
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* רוחב התוכן */
+    text-align: center; /* יישור התוכן */
+}
+
+.close {
+    color: #aaa;
+    float: right; /* יישור ימני */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* צבע בעת hover */
+    text-decoration: none; /* לא תת */
+    cursor: pointer; /* מצביע כף יד */
+}
+
+.modal-image {
+    width: 100%; /* התמונה תתפס את כל רוחב הדיאלוג */
+    max-width: 300px; /* גובה מקסימלי לתמונה */
+}
+
+.modal-price {
+    color: #6439FF;
+    font-size: 1.5rem;
+}

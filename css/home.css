@@ -104,6 +104,7 @@ nav {
     padding-right: 6px;
     padding-left: 6px;
     padding-top: 6px;
+    position: fixed;
     direction: rtl;
     display: flex; /* סידור בשורה */
     align-items: center;

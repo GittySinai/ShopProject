@@ -41,14 +41,47 @@ function createCard(product) {
     addButton.textContent = 'הוסף לסל';
     addButton.disabled = true;  
 
-    card.appendChild(image);
+
+
     card.appendChild(name);
+    card.appendChild(image);
     card.appendChild(priceContainer);
     priceContainer.appendChild(price);
     priceContainer.appendChild(addButton);
+    
+    card.addEventListener('click', () => {
+      openModal(product);
+  });
 
     return card;
 }
+// פונקציה לפתיחת הדיאלוג
+function openModal(product) {
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalImage = document.getElementById('modal-image');
+  const modalPrice = document.getElementById('modal-price');
+
+  modalTitle.textContent = product.title;
+  modalImage.src = product.image;
+  modalPrice.textContent = `₪${product.price}`;
+
+  modal.style.display = 'block'; // הפוך את הדיאלוג לגלוי
+
+  // סגירת הדיאלוג כאשר לוחצים על ה-X
+  const closeButton = document.querySelector('.close');
+  closeButton.onclick = () => {
+      modal.style.display = 'none';
+  };
+
+  // סגירת הדיאלוג כאשר לוחצים מחוץ לתוכן
+  window.onclick = (event) => {
+      if (event.target === modal) {
+          modal.style.display = 'none';
+      }
+  };
+}
+
 
 // קריאה ל-fetch והצגת הנתונים
 fetchData().then(data => {

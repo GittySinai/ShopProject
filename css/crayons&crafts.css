@@ -61,7 +61,7 @@ nav {
     display: flex; /* מאפשר יישור של תוכן בתוך הדיב */
     justify-content: center; /* מרכז את התוכן אופקית */
     align-items: center; /* מרכז את התוכן אנכית */
-    background-color: #4F75FF;
+    background-color: #814fff;
     color: #7CF5FF;
 }
 
