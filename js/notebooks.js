@@ -1,10 +1,21 @@
-import data from '../json/index' assert { type: 'json' };
+// פונקציה לטעינת נתונים
+function fetchData() {
+    return fetch(`http://localhost:3000/notebooks`) // תיקון כאן - השתמש בשם הנתיב הנכון
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json(); 
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+}
 
-const notebooks = data.notebooks; 
-console.log(notebooks);
-
+// בחר את הקונטיינר שבו תשים את הכרטיסים
 const cardsContainer = document.querySelector('.cards-container');
 
+// פונקציה ליצירת כרטיס מוצר
 function createCard(product) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -12,11 +23,14 @@ function createCard(product) {
     const image = document.createElement('img');
     image.classList.add('image');
     image.src = product.image;
-    image.alt = product.name;
+    image.alt = product.title;
 
     const name = document.createElement('h3');
     name.classList.add('name');
-    name.textContent = product.title;; 
+    name.textContent = product.title; 
+
+    const priceContainer = document.createElement('div');
+    priceContainer.classList.add('price-container');
 
     const price = document.createElement('p');
     price.classList.add('price');
@@ -29,13 +43,20 @@ function createCard(product) {
 
     card.appendChild(image);
     card.appendChild(name);
-    card.appendChild(price);
-    card.appendChild(addButton);
+    card.appendChild(priceContainer);
+    priceContainer.appendChild(price);
+    priceContainer.appendChild(addButton);
 
     return card;
 }
 
-// notebooks.forEach(product => {
-//     const card = createCard(product);
-//     cardsContainer.appendChild(card); 
-// });
+// קריאה ל-fetch והצגת הנתונים
+fetchData().then(data => {
+    if (data) { // אם הנתונים התקבלו
+        data.forEach(product => {
+            console.log('Creating card for:', product);
+            const card = createCard(product);
+            cardsContainer.appendChild(card); 
+        });
+    }
+});
